@@ -36,28 +36,27 @@ if "instance_id" not in st.session_state:
         else:
             st.write("No game instances found for this user.")
 
-    # New instance creation
-    st.subheader("New Tracker")
-    new_username = st.text_input("Enter username for new tracker", key="new_username")
-    cursor.execute("SELECT id, name FROM game ORDER BY name")
-    games = cursor.fetchall()
-    game_dict = {g[1]: g[0] for g in games}
-    new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", index=None)
-
-    if st.button("Create New Tracker"):
-        if new_username and new_game_name:
-            new_game_id = game_dict[new_game_name]
-            cursor.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, new_username))
-            conn.commit()
-            cursor.execute("SELECT id FROM instance WHERE username = ? ORDER BY last_updated DESC", (new_username,))
-            new_instance_id = cursor.fetchone()[0]
-            
-            st.session_state["instance_id"] = new_instance_id
-            st.session_state["username"] = new_username
-            st.success("New tracker created!")
-            st.rerun()
-        else:
-            st.warning("Please enter a username and select a game.")
+        # New instance creation
+        st.subheader("New Tracker")
+        cursor.execute("SELECT id, name FROM game ORDER BY name")
+        games = cursor.fetchall()
+        game_dict = {g[1]: g[0] for g in games}
+        new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", index=None)
+    
+        if st.button("Create New Tracker"):
+            if username and new_game_name:
+                new_game_id = game_dict[new_game_name]
+                cursor.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, username))
+                conn.commit()
+                cursor.execute("SELECT id FROM instance WHERE username = ? ORDER BY last_updated DESC", (username,))
+                new_instance_id = cursor.fetchone()[0]
+                
+                st.session_state["instance_id"] = new_instance_id
+                st.session_state["username"] = username
+                st.success("New tracker created!")
+                st.rerun()
+            else:
+                st.warning("Please enter a username and select a game.")
 
 else:
     # Checklist Page
