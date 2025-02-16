@@ -1,11 +1,9 @@
 import streamlit as st
-import sqlite3
+import sqlitecloud
 
-# Database connection
-DB_PATH = "your_sqlitecloud_connection_string_here"
-
+# SQLite Cloud connection
 def get_connection():
-    return sqlite3.connect(DB_PATH, check_same_thread=False)
+    return sqlitecloud.connect(st.secrets["sqlite_cloud"]["url"])
 
 # Page 1: Checklist
 def checklist_page():
