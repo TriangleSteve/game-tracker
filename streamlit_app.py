@@ -18,21 +18,21 @@ def home_page():
     if username:
         # Fetch games and instances for the user
         cursor.execute("""
-            SELECT i.id, g.name, i.game, i.last_updated 
+            SELECT i.id, g.name, i.last_updated 
             FROM instance i 
-            JOIN game g ON i.game = g.id 
+            JOIN game g ON i.game_id = g.id 
             WHERE i.username = ?
         """, (username,))
         instances = cursor.fetchall()
 
         if instances:
             st.subheader("Your Game Instances")
-            instance_dict = {f"{g_name} (Last updated: {last_updated})": inst_id for inst_id, g_name, g_id, last_updated in instances}
+            instance_dict = {f"{g_name} (Last updated: {last_updated})": inst_id for inst_id, g_name, last_updated in instances}
             selected_instance = st.selectbox("Select an instance", list(instance_dict.keys()))
             if st.button("Load Checklist"):
                 st.session_state["instance_id"] = instance_dict[selected_instance]
                 st.session_state["username"] = username
-                st.experimental_rerun()
+                st.rerun()
         else:
             st.write("No game instances found for this user.")
 
