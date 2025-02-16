@@ -37,7 +37,7 @@ def home_page():
             st.write("No game instances found for this user.")
 
     # New instance creation
-    st.subheader("Start a New Tracker")
+    st.subheader("New Tracker")
     new_username = st.text_input("Enter username for new tracker", key="new_username")
     cursor.execute("SELECT id, name FROM game")
     games = cursor.fetchall()
@@ -47,7 +47,7 @@ def home_page():
     if st.button("Create New Tracker"):
         if new_username and new_game_name:
             new_game_id = game_dict[new_game_name]
-            cursor.execute("INSERT INTO instance (game, username) VALUES (?, ?)", (new_game_id, new_username))
+            cursor.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, new_username))
             conn.commit()
             cursor.execute("SELECT last_insert_rowid()")
             new_instance_id = cursor.fetchone()[0]
