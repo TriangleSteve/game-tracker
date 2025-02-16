@@ -6,7 +6,7 @@ def get_connection():
     return sqlitecloud.connect(st.secrets["sqlite_cloud"]["url"])
 
 # Home & Checklist combined
-st.title("Game Checklist Tracker")
+st.title("Game Tracker")
 
 conn = get_connection()
 cursor = conn.cursor()
@@ -39,10 +39,10 @@ if "instance_id" not in st.session_state:
     # New instance creation
     st.subheader("New Tracker")
     new_username = st.text_input("Enter username for new tracker", key="new_username")
-    cursor.execute("SELECT id, name FROM game")
+    cursor.execute("SELECT id, name FROM game ORDER BY game")
     games = cursor.fetchall()
     game_dict = {g[1]: g[0] for g in games}
-    new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select")
+    new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", None)
 
     if st.button("Create New Tracker"):
         if new_username and new_game_name:
@@ -61,7 +61,6 @@ if "instance_id" not in st.session_state:
 
 else:
     # Checklist Page
-    st.title("Game Checklist")
     instance_id = st.session_state["instance_id"]
     
     cursor.execute("""
