@@ -117,7 +117,7 @@ def task_management_page():
 
     if game_id:
         # Fetch tasks
-        cursor.execute("SELECT id, name, region, category, details FROM checkbox WHERE game = ?", (game_id,))
+        cursor.execute("SELECT id, name, region, category, details FROM checkbox WHERE game_id = ?", (game_id,))
         tasks = cursor.fetchall()
 
         st.subheader("Existing Tasks")
@@ -127,7 +127,7 @@ def task_management_page():
             if st.button(f"Delete {task_name}"):
                 cursor.execute("DELETE FROM checkbox WHERE id = ?", (task_id,))
                 conn.commit()
-                st.experimental_rerun()
+                st.rerun()
 
         # Add new task
         st.subheader("Add New Task")
@@ -138,12 +138,12 @@ def task_management_page():
 
         if st.button("Add Task"):
             cursor.execute("""
-                INSERT INTO checkbox (game, name, region, category, details) 
+                INSERT INTO checkbox (game_id, name, region, category, details) 
                 VALUES (?, ?, ?, ?, ?)
             """, (game_id, new_task_name, new_region, new_category, new_details))
             conn.commit()
             st.success("Task added!")
-            st.experimental_rerun()
+            st.rerun()
 
     conn.close()
 
