@@ -73,17 +73,13 @@ def checklist_page():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Fetch game info
-    cursor.execute("SELECT game FROM instance WHERE id = ?", (instance_id,))
-    game_id = cursor.fetchone()[0]
-
     # Fetch checklist items
     cursor.execute("""
-        SELECT c.id, c.name, d.value
-        FROM checkbox c
-        LEFT JOIN data d ON c.id = d.checkbox_id AND d.instance_id = ?
-        WHERE c.game = ?
-    """, (instance_id, game_id))
+        SELECT d.id, c.name, d.checked
+        FROM checkbox_data d
+        JOIN checkbox c ON c.id = d.checkbox_id 
+        WHERE d.instance_id = ?
+    """, (instance_id))
     tasks = cursor.fetchall()
 
     st.subheader("Checklist")
@@ -95,10 +91,10 @@ def checklist_page():
     if st.button("Save Checklist"):
         for task_id, checked in checked_state.items():
             cursor.execute("""
-                INSERT INTO data (checkbox_id, instance_id, game_id, value)
-                VALUES (?, ?, ?, ?)
-                ON CONFLICT(checkbox_id, instance_id) DO UPDATE SET value = ?
-            """, (task_id, instance_id, game_id, checked, checked))
+                UPDATE checkbox_data
+                SET checked = ?
+                WHERE id = ?
+            """, (checked, task_id))
         conn.commit()
         st.success("Checklist updated!")
 
