@@ -39,7 +39,7 @@ if "instance_id" not in st.session_state:
     # New instance creation
     st.subheader("New Tracker")
     new_username = st.text_input("Enter username for new tracker", key="new_username")
-    cursor.execute("SELECT id, name FROM game ORDER BY game")
+    cursor.execute("SELECT id, name FROM game ORDER BY name")
     games = cursor.fetchall()
     game_dict = {g[1]: g[0] for g in games}
     new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", index=None)
