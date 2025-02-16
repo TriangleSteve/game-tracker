@@ -22,6 +22,7 @@ def home_page():
             FROM instance i 
             JOIN game g ON i.game_id = g.id 
             WHERE i.username = ?
+            ORDER BY last_updated DESC
         """, (username,))
         instances = cursor.fetchall()
 
