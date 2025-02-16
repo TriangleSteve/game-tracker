@@ -32,7 +32,7 @@ def home_page():
             if st.button("Load Checklist"):
                 st.session_state["instance_id"] = instance_dict[selected_instance]
                 st.session_state["username"] = username
-                st.rerun()
+                page = "Checklist"
         else:
             st.write("No game instances found for this user.")
 
