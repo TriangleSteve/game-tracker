@@ -79,7 +79,7 @@ def checklist_page():
         FROM checkbox_data d
         JOIN checkbox c ON c.id = d.checkbox_id 
         WHERE d.instance_id = ?
-    """, (instance_id))
+    """, (instance_id,))
     tasks = cursor.fetchall()
 
     st.subheader("Checklist")
