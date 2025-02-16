@@ -42,7 +42,7 @@ if "instance_id" not in st.session_state:
     cursor.execute("SELECT id, name FROM game ORDER BY game")
     games = cursor.fetchall()
     game_dict = {g[1]: g[0] for g in games}
-    new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", None)
+    new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", index=None)
 
     if st.button("Create New Tracker"):
         if new_username and new_game_name:
