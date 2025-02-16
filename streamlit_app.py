@@ -32,7 +32,7 @@ def home_page():
             if st.button("Load Checklist"):
                 st.session_state["instance_id"] = instance_dict[selected_instance]
                 st.session_state["username"] = username
-                page = "Checklist"
+                checklist_page()
         else:
             st.write("No game instances found for this user.")
 
@@ -49,13 +49,13 @@ def home_page():
             new_game_id = game_dict[new_game_name]
             cursor.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, new_username))
             conn.commit()
-            cursor.execute("SELECT last_insert_rowid()")
+            cursor.execute("SELECT id FROM instance WHERE username = ? ORDER BY last_updated DESC", (username,))
             new_instance_id = cursor.fetchone()[0]
 
             st.session_state["instance_id"] = new_instance_id
             st.session_state["username"] = new_username
             st.success("New tracker created!")
-            st.experimental_rerun()
+            checklist_page()
         else:
             st.warning("Please enter a username and select a game.")
 
