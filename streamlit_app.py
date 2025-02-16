@@ -142,8 +142,8 @@ def task_management_page():
                 VALUES (?, ?, ?, ?, ?)
             """, (game_id, new_task_name, new_region, new_category, new_details))
             conn.commit()
-            st.success("Task added!")
             st.rerun()
+            st.success("Task added!")
 
     conn.close()
 
