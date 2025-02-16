@@ -1,9 +1,6 @@
 import streamlit as st
-import sqlitecloud
-
-# SQLite Cloud connection
-def get_connection():
-    return sqlitecloud.connect(st.secrets["sqlite_cloud"]["url"])
+from db import *
+from datetime import datetime
 
 # Home & Checklist combined
 st.title("Game Tracker")
@@ -12,9 +9,10 @@ conn = get_connection()
 
 if "instance_id" not in st.session_state:
     # User login
-    username = st.text_input("Enter your username", key="username_input")
+    username = st.text_input("Enter your username", value=st.session_state.get("username", ""), key="username_input")
     
     if username:
+        st.session_state["username"] = username
         instances = conn.execute("""
             SELECT i.id, g.name, i.last_updated 
             FROM instance i 
@@ -85,6 +83,13 @@ else:
                 SET checked = ?
                 WHERE id = ?
             """, (int(checked), task_id))
+
+        conn.execute("""
+            UPDATE instance
+            SET last_updated = ?
+            WHERE id = ?
+        """, (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), instance_id))
+
         conn.commit()
         st.success("Checklist updated!")
 
