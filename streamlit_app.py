@@ -5,18 +5,17 @@ import sqlitecloud
 def get_connection():
     return sqlitecloud.connect(st.secrets["sqlite_cloud"]["url"])
 
-# Page 1: Home
-def home_page():
-    st.title("Game Checklist Tracker")
+# Home & Checklist combined
+st.title("Game Checklist Tracker")
 
-    conn = get_connection()
-    cursor = conn.cursor()
+conn = get_connection()
+cursor = conn.cursor()
 
+if "instance_id" not in st.session_state:
     # User login
     username = st.text_input("Enter your username", key="username_input")
     
     if username:
-        # Fetch games and instances for the user
         cursor.execute("""
             SELECT i.id, g.name, i.last_updated 
             FROM instance i 
@@ -33,7 +32,7 @@ def home_page():
             if st.button("Load Checklist"):
                 st.session_state["instance_id"] = instance_dict[selected_instance]
                 st.session_state["username"] = username
-                checklist_page()
+                st.rerun()
         else:
             st.write("No game instances found for this user.")
 
@@ -50,31 +49,21 @@ def home_page():
             new_game_id = game_dict[new_game_name]
             cursor.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, new_username))
             conn.commit()
-            cursor.execute("SELECT id FROM instance WHERE username = ? ORDER BY last_updated DESC", (username,))
+            cursor.execute("SELECT id FROM instance WHERE username = ? ORDER BY last_updated DESC", (new_username,))
             new_instance_id = cursor.fetchone()[0]
-
+            
             st.session_state["instance_id"] = new_instance_id
             st.session_state["username"] = new_username
             st.success("New tracker created!")
-            checklist_page()
+            st.rerun()
         else:
             st.warning("Please enter a username and select a game.")
 
-    conn.close()
-
-# Page 2: Checklist
-def checklist_page():
+else:
+    # Checklist Page
     st.title("Game Checklist")
-
-    if "instance_id" not in st.session_state:
-        st.warning("Please select an instance from the Home page.")
-        return
-
     instance_id = st.session_state["instance_id"]
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    # Fetch checklist items
+    
     cursor.execute("""
         SELECT d.id, c.name, d.checked
         FROM checkbox_data d
@@ -99,61 +88,4 @@ def checklist_page():
         conn.commit()
         st.success("Checklist updated!")
 
-    conn.close()
-
-# Page 3: Task Management
-def task_management_page():
-    st.title("Manage Game Checklist Items")
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    # Select game
-    cursor.execute("SELECT id, name FROM game")
-    games = cursor.fetchall()
-    game_dict = {g[1]: g[0] for g in games}
-    game_name = st.selectbox("Select a game", list(game_dict.keys()))
-    game_id = game_dict[game_name] if game_name else None
-
-    if game_id:
-        # Fetch tasks
-        cursor.execute("SELECT id, name, region, category, details FROM checkbox WHERE game_id = ?", (game_id,))
-        tasks = cursor.fetchall()
-
-        st.subheader("Existing Tasks")
-        for task in tasks:
-            task_id, task_name, region, category, details = task
-            st.write(f"**{task_name}** (Region: {region}, Category: {category})")
-            if st.button(f"Delete {task_name}"):
-                cursor.execute("DELETE FROM checkbox WHERE id = ?", (task_id,))
-                conn.commit()
-                st.rerun()
-
-        # Add new task
-        st.subheader("Add New Task")
-        new_task_name = st.text_input("Task Name")
-        new_region = st.text_input("Region")
-        new_category = st.text_input("Category")
-        new_details = st.text_area("Details")
-
-        if st.button("Add Task"):
-            cursor.execute("""
-                INSERT INTO checkbox (game_id, name, region, category, details) 
-                VALUES (?, ?, ?, ?, ?)
-            """, (game_id, new_task_name, new_region, new_category, new_details))
-            conn.commit()
-            st.rerun()
-            st.success("Task added!")
-
-    conn.close()
-
-# Navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Checklist", "Manage Tasks"])
-
-if page == "Home":
-    home_page()
-elif page == "Checklist":
-    checklist_page()
-elif page == "Manage Tasks":
-    task_management_page()
+conn.close()
