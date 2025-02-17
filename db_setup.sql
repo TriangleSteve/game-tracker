@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS instance (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     game_id INTEGER NOT NULL,
     username TEXT NOT NULL,
+    hide_completed BOOLEAN DEFAULT 0,
+    selected_categories TEXT DEFAULT '[]'
     FOREIGN KEY (game_id) REFERENCES game(id) ON DELETE CASCADE
 );
 
