@@ -11,7 +11,7 @@ conn = get_connection()
 
 if "instance_id" not in st.session_state:
     # User login
-    username = st.text_input("Enter your username", value=st.session_state.get("username", ""), key="username_input")
+    username = st.text_input("Enter username", value=st.session_state.get("username", ""), key="username_input")
     
     if username:
         st.session_state["username"] = username
@@ -24,7 +24,7 @@ if "instance_id" not in st.session_state:
         """, (username,)).fetchall()
 
         if instances:
-            st.subheader("Your Game Instances")
+            st.subheader("Your Trackers")
             instance_dict = {f"{g_name} (Last updated: {last_updated})": inst_id for inst_id, g_name, last_updated in instances}
             selected_instance = st.selectbox("Select an instance", list(instance_dict.keys()), None)
             if st.button("Load Tracker"):
@@ -40,7 +40,7 @@ if "instance_id" not in st.session_state:
         game_dict = {g[1]: g[0] for g in games}
         new_game_name = st.selectbox("Select a game", list(game_dict.keys()), key="new_game_select", index=None)
     
-        if st.button("Create New Tracker"):
+        if st.button("Create Tracker"):
             if username and new_game_name:
                 new_game_id = game_dict[new_game_name]
                 conn.execute("INSERT INTO instance (game_id, username) VALUES (?, ?)", (new_game_id, username))
@@ -85,8 +85,9 @@ else:
 
     # Get unique categories for filtering
     categories = df["category"].unique().tolist()
-    selected_categories = st.multiselect("Filter by Category", categories, default=categories)
-    hide_completed = st.checkbox("Hide Completed Items", value=hide_completed, key="hide_filter")
+    with st.expander('Filters', expanded=False, icon=":material/filter_list:"):
+        selected_categories = st.multiselect("Category", categories, default=categories)
+        hide_completed = st.checkbox("Hide Completed", value=hide_completed, key="hide_filter")
 
     # Apply filters in-memory
     filtered_df = df[df["category"].isin(selected_categories)]
@@ -96,7 +97,6 @@ else:
     # Group tasks by region
     task_groups = filtered_df.groupby("region")
 
-    st.subheader("Checklist")
     checked_state = {}
 
     # Display tasks grouped by region
