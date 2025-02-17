@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS checkbox_data (
     checkbox_id INTEGER NOT NULL,
     instance_id INTEGER NOT NULL,
     checked BOOLEAN DEFAULT 0,
+    sort_order INTEGER;
     FOREIGN KEY (checkbox_id) REFERENCES checkbox(id) ON DELETE CASCADE,
     FOREIGN KEY (instance_id) REFERENCES instance(id) ON DELETE CASCADE
 );

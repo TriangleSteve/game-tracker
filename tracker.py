@@ -80,6 +80,7 @@ else:
         FROM checkbox_data d
         JOIN checkbox c ON c.id = d.checkbox_id 
         WHERE d.instance_id = ?
+        ORDER BY c.sort_order
     """
     df = pd.read_sql(query, conn, params=(instance_id,))
 
