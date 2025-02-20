@@ -118,7 +118,7 @@ else:
         with st.expander(region, expanded=True):  # Collapsible sections for each region
             for _, row in tasks.iterrows():
                 label = f'[{row["category"]}] {row["task_name"]}'
-                checked_state[row["task_id"]] = st.checkbox(label, value=bool(row["checked"]))
+                checked_state[row["task_id"]] = st.checkbox(label, value=bool(row["checked"]), key=row["task_id"])
 
     if st.button("Save Checklist"):
         modified_tasks = [(int(checked), task_id) for task_id, checked in checked_state.items()]

@@ -1,0 +1,111 @@
+id,name,region,category,details,x,y,game_id,required,sort_order
+1,Parasite Queen,Tallon Overworld,Bosses,Frigate Orpheon,,,10,,1
+2,Meta Ridley,Tallon Overworld,Bosses,Tallon Overworld,,,10,12 Artifacts,2
+3,Metroid Prime,Tallon Overworld,Bosses,Impact Crater,,,10,,3
+4,Space Jump Boots,Tallon Overworld,Suit Upgrades,Alcove,,,10,Boost,4
+5,X-Ray,Tallon Overworld,Suit Upgrades,Life Grove,,,10,Power Bomb,5
+6,Missile 1,Tallon Overworld,Missile Tanks,Landing Site,,,10,Morph Ball,6
+7,Missile 2,Tallon Overworld,Missile Tanks,Transport Tunnel B,,,10,Space Jump,7
+8,Missile 3,Tallon Overworld,Missile Tanks,Overgrown Cavern,,,10,Ice Beam,8
+9,Missile 4,Tallon Overworld,Missile Tanks,Frigate Crash Site,,,10,Gravity Suit,9
+10,Missile 5,Tallon Overworld,Missile Tanks,Biohazard Containment,,,10,Gravity Suit,10
+11,Missile 6,Tallon Overworld,Missile Tanks,Root Cave (Arbor Chamber),,,10,Plasma Beam,11
+12,Missile 7,Tallon Overworld,Missile Tanks,Root Cave,,,10,X-Ray Visor,12
+13,Missile 8,Tallon Overworld,Missile Tanks,Great Tree Hall,,,10,Ice Beam/X-Ray,13
+14,Missile 9,Tallon Overworld,Missile Tanks,Life Grove Tunnel,,,10,Power Bomb,14
+15,Tank 1,Tallon Overworld,Energy Tanks,Cargo Freight Lift,,,10,Gravity Suit,15
+16,Tank 2,Tallon Overworld,Energy Tanks,Hydro Access Tunnel,,,10,Gravity Suit,16
+17,Artifact of Truth,Tallon Overworld,Artifacts,Artifact Temple,,,10,Charge Beam,17
+18,Artifact of Chozo,Tallon Overworld,Artifacts,Life Grove,,,10,Power Bomb,18
+19,Hive Mecha,Chozo Ruins,Bosses,Hive Totem,,,10,,19
+20,Incinerator Drone,Chozo Ruins,Bosses,Burn Dome,,,10,,20
+21,Flaahgra,Chozo Ruins,Bosses,Sunchamber,,,10,,21
+22,Missiles,Chozo Ruins,Suit Upgrades,Hive Totem,,,10,,22
+23,Morph Ball,Chozo Ruins,Suit Upgrades,Ruined Shrine,,,10,Missiles,23
+24,Charge Beam,Chozo Ruins,Suit Upgrades,Watery Hall,,,10,Morph Ball,24
+25,Bombs,Chozo Ruins,Suit Upgrades,Burn Dome,,,10,Bombs,25
+26,Varia Suit,Chozo Ruins,Suit Upgrades,Sunchamber,,,10,Bombs,26
+27,Ice Beam,Chozo Ruins,Suit Upgrades,Antechamber,,,10,Spider Ball,27
+28,Wavebuster,Chozo Ruins,Suit Upgrades,Tower of Light,,,10,Spider Ball,28
+29,Missile 1,Chozo Ruins,Missile Tanks,Main Plaza,,,10,Boost Ball,29
+30,Missile 2,Chozo Ruins,Missile Tanks,Main Plaza,,,10,Grapple,30
+31,Missile 3,Chozo Ruins,Missile Tanks,Main Plaza,,,10,Super Missile,31
+32,Missile 4,Chozo Ruins,Missile Tanks,Ruined Nursery,,,10,Bombs,32
+33,Missile 5,Chozo Ruins,Missile Tanks,Ruined Gallery,,,10,Morph Ball,33
+34,Missile 6,Chozo Ruins,Missile Tanks,Ruined Gallery,,,10,Missile,34
+35,Missile 7,Chozo Ruins,Missile Tanks,Ruined Shrine,,,10,Boost Ball,35
+36,Missile 8,Chozo Ruins,Missile Tanks,Ruined Shrine,,,10,Bombs,36
+37,Missile 9,Chozo Ruins,Missile Tanks,Vault,,,10,Bombs,37
+38,Missile 10,Chozo Ruins,Missile Tanks,Ruined Fountain,,,10,Spider Ball,38
+39,Missile 11,Chozo Ruins,Missile Tanks,Gathering Hall,,,10,Space Jump,39
+40,Missile 12,Chozo Ruins,Missile Tanks,Watery Hall Access,,,10,Missile,40
+41,Missile 13,Chozo Ruins,Missile Tanks,Watery Hall,,,10,Gravity Suit,41
+42,Missile 14,Chozo Ruins,Missile Tanks,Burn Dome,,,10,Bombs,42
+43,Missile 15,Chozo Ruins,Missile Tanks,Furnace,,,10,Power Bomb,43
+44,Missile 16,Chozo Ruins,Missile Tanks,Dynamo,,,10,Missile,44
+45,Missile 17,Chozo Ruins,Missile Tanks,Dynamo,,,10,Spider Ball,45
+46,Missile 18,Chozo Ruins,Missile Tanks,Crossway,,,10,Spider Ball,46
+47,Missile 19,Chozo Ruins,Missile Tanks,Training Chamber Access,,,10,Grapple,47
+48,Tank 1,Chozo Ruins,Energy Tanks,Main Plaza,,,10,Flaahgra,48
+49,Tank 2,Chozo Ruins,Energy Tanks,Transport Access North,,,10,Missile,49
+50,Tank 3,Chozo Ruins,Energy Tanks,Furnace,,,10,Bomb,50
+51,Tank 4,Chozo Ruins,Energy Tanks,Hall of the Elders,,,10,Ice Beam,51
+52,Tank 5,Chozo Ruins,Energy Tanks,Training Chamber,,,10,Grapple,52
+53,Power Bomb 1,Chozo Ruins,Power Bombs,Magma Pool,,,10,Power Bomb,53
+54,Artifact of Lifegiver,Chozo Ruins,Artifacts,Tower of Light,,,10,Gravity Suit,54
+55,Artifact of Wild,Chozo Ruins,Artifacts,Sunchamber,,,10,Spider Ball,55
+56,Artifact of World,Chozo Ruins,Artifacts,Elder Chamber,,,10,Plasma Beam,56
+57,Ice Spreader,Magmoor Caverns,Suit Upgrades,Shore Tunnel,,,10,Power Bomb,57
+58,Plasma Beam,Magmoor Caverns,Suit Upgrades,Geothermal Core,,,10,Grapple Beam,58
+59,Missile 1,Magmoor Caverns,Missile Tanks,Storage Cavern,,,10,Morph Ball,59
+60,Missile 2,Magmoor Caverns,Missile Tanks,Triclops Pit,,,10,X-Ray,60
+61,Missile 3,Magmoor Caverns,Missile Tanks,Fiery Shores,,,10,Bomb,61
+62,Tank 1,Magmoor Caverns,Energy Tanks,Transport Tunnel A,,,10,Bombs,62
+63,Tank 2,Magmoor Caverns,Energy Tanks,Magmoor Workstation,,,10,Thermal Visor,63
+64,Power Bomb 1,Magmoor Caverns,Power Bombs,Warrior Shrine,,,10,Power Bomb,64
+65,Artifact of Nature,Magmoor Caverns,Artifacts,Lava Lake,,,10,Super Missile,65
+66,Artifact of Strength,Magmoor Caverns,Artifacts,Monitor Station,,,10,Space Jump,66
+67,Sheegoth,Phendrana Drifts,Bosses,Chapel of the Elders,,,10,,67
+68,Thardus,Phendrana Drifts,Bosses,Quarantine Cave,,,10,,68
+69,Boost Ball,Phendrana Drifts,Suit Upgrades,Phendrana Canyon,,,10,Varia Suit,69
+70,Wave Beam,Phendrana Drifts,Suit Upgrades,Chapel of the Elders,,,10,Space Jump,70
+71,Super Missile,Phendrana Drifts,Suit Upgrades,Observatory,,,10,Wave Beam,71
+72,Thermal Visor,Phendrana Drifts,Suit Upgrades,Research Core,,,10,Super Missile,72
+73,Spider Ball,Phendrana Drifts,Suit Upgrades,Quarantine Cave,,,10,Thermal Visor,73
+74,Gravity Suit,Phendrana Drifts,Suit Upgrades,Gravity Chamber,,,10,Ice Beam,74
+75,Missile 1,Phendrana Drifts,Missile Tanks,Phendrana Shorelines,,,10,Plasma Beam,75
+76,Missile 2,Phendrana Drifts,Missile Tanks,Phendrana Shorelines,,,10,Spider Ball,76
+77,Missile 3,Phendrana Drifts,Missile Tanks,Ice Ruins East,,,10,Spider Ball,77
+78,Missile 4,Phendrana Drifts,Missile Tanks,Ice Ruins East,,,10,Plasma Beam,78
+79,Missile 5,Phendrana Drifts,Missile Tanks,Research Lab Hydra,,,10,Super Missile,79
+80,Missile 6,Phendrana Drifts,Missile Tanks,Research Lab Aether,,,10,Wave Beam,80
+81,Missile 7,Phendrana Drifts,Missile Tanks,Frost Cave,,,10,Grapple Beam,81
+82,Missile 8,Phendrana Drifts,Missile Tanks,Gravity Chamber,,,10,Plasma Beam,82
+83,Missile 9,Phendrana Drifts,Missile Tanks,Quarantine Cave,,,10,Grapple Beam,83
+84,Tank 1,Phendrana Drifts,Energy Tanks,Ruined Courtyard,,,10,Wave Beam,84
+85,Tank 2,Phendrana Drifts,Energy Tanks,Research Lab Aether,,,10,Missile,85
+86,Tank 3,Phendrana Drifts,Energy Tanks,Transport Access,,,10,Plasma Beam,86
+87,Power Bomb 1,Phendrana Drifts,Power Bombs,Ice Ruins West,,,10,Plasma Beam,87
+88,Power Bomb 2,Phendrana Drifts,Power Bombs,Phendrana's Edge,,,10,Grapple Beam,88
+89,Artifact of Elder,Phendrana Drifts,Artifacts,Control Tower,,,10,Missile,89
+90,Artifact of Sun,Phendrana Drifts,Artifacts,Chozo Ice Temple,,,10,Plasma Beam,90
+91,Artifact of Spirit,Phendrana Drifts,Artifacts,Phendrana's Edge,,,10,Plasma Beam,91
+92,Phazon Elite,Phazon Mines,Bosses,Phazon Mines,,,10,,92
+93,Omega Pirate,Phazon Mines,Bosses,Phazon Mines,,,10,,93
+94,Power Bomb,Phazon Mines,Suit Upgrades,Central Dynamo,,,10,Gravity Suit,94
+95,Grapple Beam,Phazon Mines,Suit Upgrades,Ore Processing,,,10,Power Bomb,95
+96,Flamethrower,Phazon Mines,Suit Upgrades,Storage Depot A,,,10,Plasma Beam,96
+97,Phazon Suit,Phazon Mines,Suit Upgrades,Elite Quarters,,,10,Plasma Beam,97
+98,Missile 1,Phazon Mines,Missile Tanks,Main Quarry,,,10,Thermal Visor,98
+99,Missile 2,Phazon Mines,Missile Tanks,Security Access A,,,10,Power Bomb,99
+100,Missile 3,Phazon Mines,Missile Tanks,Elite Research,,,10,Pulse Beam Puzzle; 8% Wall,100
+101,Missile 4,Phazon Mines,Missile Tanks,Elite Control Access,,,10,Explosive Crate,101
+102,Missile 5,Phazon Mines,Missile Tanks,Phazon Processing Chamber,,,10,Power Bomb,102
+103,Missile 6,Phazon Mines,Missile Tanks,Metroid Quarantine A,,,10,X-Ray Visor,103
+104,Missile 7,Phazon Mines,Missile Tanks,Fungal Hall Access,,,10,Plasma Beam,104
+105,Missile 8,Phazon Mines,Missile Tanks,Fungal Hall B,,,10,Thermal Visor,105
+106,Missile 9,Phazon Mines,Missile Tanks,Metroid Quarantine B,,,10,Super Missile,106
+107,Tank 1 ,Phazon Mines,Energy Tanks,Ventilation Shaft,,,10,Power Bomb,107
+108,Tank 2,Phazon Mines,Energy Tanks,Processing Center Access,,,10,Omega Pirate,108
+109,Artifact of Warrior,Phazon Mines,Artifacts,Elite Research,,,10,Power Bomb,109
+110,Artifact of Newborn,Phazon Mines,Artifacts,Phazon Mining Tunnel,,,10,Phazon Suit,110
