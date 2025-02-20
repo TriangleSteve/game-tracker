@@ -7,3 +7,4 @@ TODO
 - [ ] Default expanders to not expanded
 - [ ] Move submit button to top in container with back button
 - [ ] Order groups by MIN checkbox id
+- [ ] Completion percentage?
