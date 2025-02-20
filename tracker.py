@@ -12,6 +12,7 @@ conn = get_connection()
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
