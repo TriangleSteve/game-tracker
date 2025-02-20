@@ -18,6 +18,25 @@ hide_streamlit_style = """
             .block-container {
                     padding-top: 1rem;
             }
+            html, body {
+                overscroll-behavior: none;
+                height: 100vh;
+                min-height: -webkit-fill-available;
+                touch-action: manipulation;
+            }
+            
+            html {
+                background-color: black;
+                color-scheme: dark;
+            }
+            
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+                background-color: black;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
