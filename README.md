@@ -8,3 +8,5 @@ TODO
 - [ ] Move submit button to top in container with back button
 - [ ] Order groups by MIN checkbox id
 - [ ] Completion percentage?
+- [ ] Add "Analyze Tracker" button to home
+- [ ] Add Analysis page
