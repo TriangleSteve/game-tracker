@@ -15,17 +15,12 @@ hide_streamlit_style = """
             #MainMenu {visibility: hidden;}
             header {visibility: hidden;}
             footer {visibility: hidden;}
+            .block-container {
+                    padding-top: 1rem;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 0rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
 
 if "instance_id" not in st.session_state:
     # User login
