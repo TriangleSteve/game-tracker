@@ -9,6 +9,15 @@ st.title("Game Tracker")
 
 conn = get_connection()
 
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown("""
         <style>
                .block-container {
@@ -19,15 +28,6 @@ st.markdown("""
                 }
         </style>
         """, unsafe_allow_html=True)
-
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            header {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 if "instance_id" not in st.session_state:
     # User login
