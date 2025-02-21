@@ -10,3 +10,5 @@ TODO
 - [ ] Completion percentage?
 - [ ] Add "Analyze Tracker" button to home
 - [ ] Add Analysis page
+- [ ] Call all tasks for game (updated list)
+- [ ] Remove hover button IOS (on load tracker dropdown)
